@@ -1,6 +1,6 @@
 ---
-import astroLogo from '../assets/astro.svg';
-import background from '../assets/background.svg';
+import astroLogo from '@/assets/astro.svg';
+import background from '@/assets/background.svg';
 ---
 
 <div id="container">
@@ -55,6 +55,13 @@ import background from '../assets/background.svg';
 	#container {
 		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
 		height: 100%;
+		transition: opacity 1s, translate 1s;
+		opacity: 1;
+		translate: 0 0;
+		@starting-style {
+			opacity: 0;
+			translate: 0 10px;
+		}
 	}
 
 	main {
@@ -85,9 +92,14 @@ import background from '../assets/background.svg';
 		display: flex;
 		align-items: center;
 		padding: 10px 12px;
-		color: #111827;
 		text-decoration: none;
-		transition: color 0.2s;
+		transition: opacity 1s, translate 1s, color 1s;
+		opacity: 1;
+		translate: 0 0;
+		@starting-style {
+			opacity: 0;
+			translate: 0 100px;
+		}
 	}
 
 	#links a:hover {

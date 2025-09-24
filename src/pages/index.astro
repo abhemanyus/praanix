@@ -1,11 +1,109 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "@/layouts/Layout.astro";
+import doctor from "@/assets/doctor.svg";
+import prescription from "@/assets/prescription.svg";
+import selfcheck from "@/assets/selfcheck.svg";
+import pharmacy from "@/assets/pharmacy.svg";
+import docfinder from "@/assets/docfinder.svg";
+import you from "@/assets/you.svg";
 ---
 
 <Layout>
-	<Welcome />
+	<div class="container">
+		<div class="cards">
+			<a class="card" href="/consult/">
+				<img src={doctor.src} alt="Avatar 1" />
+				<span>Consult</span>
+			</a>
+			<a class="card" href="/prescription/">
+				<img src={prescription.src} alt="Avatar 2" />
+				<span>Prescriptions</span>
+			</a>
+			<a class="card" href="/selfcheck/">
+				<img src={selfcheck.src} alt="Avatar 3" />
+				<span>Self-Check</span>
+			</a>
+			<a class="card" href="/pharmacy/">
+				<img src={pharmacy.src} alt="Avatar 4" />
+				<span>Pharmacy</span>
+			</a>
+			<a class="card" href="/docfinder/">
+				<img src={docfinder.src} alt="Avatar 4" />
+				<span>Doc-Finder</span>
+			</a>
+			<a class="card" href="/you/">
+				<img src={you.src} alt="Avatar 4" />
+				<span>You</span>
+			</a>
+		</div>
+
+		<div class="content">
+			<h2>Notifications</h2>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+				scelerisque nulla non ligula cursus, at tincidunt turpis tempus.
+				Maecenas tincidunt, nibh nec pretium fermentum, nibh lacus euismod nunc,
+				eget imperdiet lectus magna vel orci. Suspendisse at quam ac nunc
+				vestibulum sodales non in eros. In vitae ligula eget arcu malesuada
+				condimentum.
+			</p>
+			<p>
+				Donec efficitur ultrices sapien, a varius est blandit non. Integer
+				sodales risus sed ligula tristique, sit amet facilisis lorem bibendum.
+				Sed lacinia lectus nec neque interdum pretium.
+			</p>
+		</div>
+	</div>
 </Layout>
+
+<style>
+	.container {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-md);
+		padding: var(--space-md);
+	}
+
+	/* Cards */
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+		gap: var(--space-md);
+	}
+
+	.card {
+		aspect-ratio: 1 / 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+		align-items: center;
+		gap: var(--space-sm);
+		padding: var(--space-md);
+		background: var(--color-bg);
+		border-radius: var(--radius-sm);
+		box-shadow: var(--shadow-md);
+		img {
+			width: 80%;
+			height: 80%;
+			object-fit: contain;
+		}
+	}
+
+	/* Text content */
+	.content {
+		background: var(--color-bg);
+		padding: var(--space-md);
+		border-radius: var(--radius-sm);
+		box-shadow: var(--shadow-md);
+		width: 100%;
+		line-height: var(--text-lg);
+	}
+
+	/* Desktop layout */
+	@media (min-width: 768px) {
+		.container {
+			grid-template-columns: 3fr 1fr;
+		}
+	}
+</style>

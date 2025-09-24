@@ -1,3 +1,7 @@
+---
+import "@/styles/global.css";
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -8,15 +12,47 @@
 		<title>Astro Basics</title>
 	</head>
 	<body>
+		<theme-picker>
+			<label
+				><input
+					type="radio"
+					name="theme"
+					id="theme-auto"
+					checked=""
+				/>Auto</label
+			>
+			<label><input type="radio" name="theme" id="theme-light" />Light</label>
+			<label><input type="radio" name="theme" id="theme-dark" />Dark</label>
+		</theme-picker>
 		<slot />
 	</body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
+	theme-picker {
+		display: flex;
+		flex-direction: row-reverse;
+		padding: var(--space-xs);
+		& label {
+			box-shadow: var(--shadow-sm) inset;
+			background: var(--color-bg);
+			padding: var(--space-xs);
+			cursor: pointer;
+			user-select: none;
+			&:first-child {
+				border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+			}
+			&:last-child {
+				border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+			}
+			&:has(input:checked) {
+				box-shadow: var(--shadow-lg) inset;
+			}
+		}
+		& input {
+			opacity: 0;
+			position: absolute;
+			pointer-events: none;
+		}
 	}
 </style>

@@ -1,0 +1,120 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import doctor from "@/assets/doctor.svg";
+import you from "@/assets/you.svg";
+---
+
+<Layout>
+	<div class="container">
+		<div class="meet">
+			<div class="card caller">
+			<div class="status"></div>
+				<img src={doctor.src} alt="Avatar 1" />
+			</div>
+			<div class="card callee">
+			<div class="status"></div>
+				<img src={you.src} alt="Avatar 2" />
+			</div>
+		</div>
+
+		<div class="content">
+			<h2>Chat</h2>
+			<div class="messages">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin</p>
+				<p class="you">
+					Donec efficitur ultrices sapien, a varius est blandit non. Integer
+				</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin</p>
+				<p class="you">
+					Donec efficitur ultrices sapien, a varius est blandit non. Integer
+				</p>
+			</div>
+			<input type="text" name="message" placeholder="Your message" />
+		</div>
+	</div>
+</Layout>
+
+<style>
+	.container {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: var(--space-md);
+		padding: var(--space-md);
+	}
+
+	.meet {
+		position: relative;
+		height: 100%;
+	}
+
+	.status {
+		border-radius: 50%;
+		background-color: red;
+		width: var(--text-lg);
+		height: var(--text-lg);
+		position: absolute;
+		top: 5%;
+		right: 5%;
+		border-style: inset;
+		border-color: var(--color-border);
+	}
+
+	.card {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+		align-items: center;
+		gap: var(--space-sm);
+		padding: var(--space-md);
+		background: var(--color-bg);
+		border-radius: var(--radius-sm);
+		box-shadow: var(--shadow-md);
+		height: 100%;
+		width: 100%;
+		img {
+			width: 80%;
+			height: 80%;
+			object-fit: contain;
+		}
+	}
+
+	.callee {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		width: 25%;
+		height: 25%;
+		z-index: 10;
+	}
+
+	/* Text content */
+	.content {
+		background: var(--color-bg);
+		padding: var(--space-md);
+		border-radius: var(--radius-sm);
+		box-shadow: var(--shadow-md);
+		width: 100%;
+		position: relative;
+		line-height: var(--text-lg);
+		& > h2 {
+			text-align: right;
+		}
+		& > .messages {
+			overflow: scroll;
+			& > p {
+				text-align: left;
+			}
+			& > p.you {
+				text-align: right;
+			}
+		}
+	}
+
+	/* Desktop layout */
+	@media (min-width: 768px) {
+		.container {
+			grid-template-columns: 3fr 1fr;
+		}
+	}
+</style>
