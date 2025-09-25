@@ -5,116 +5,72 @@ import you from "@/assets/you.svg";
 ---
 
 <Layout>
-	<div class="container">
-		<div class="meet">
-			<div class="card caller">
-			<div class="status"></div>
-				<img src={doctor.src} alt="Avatar 1" />
+	<div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4 w-full h-full">
+		<!-- Video area -->
+		<div class="relative col-span-2 w-full h-full">
+			<!-- Caller (main video) -->
+			<div class="card bg-base-100 shadow-md w-full h-full">
+				<div class="indicator w-full h-full flex items-center justify-center">
+					<span class="indicator-item badge badge-error top-4 right-4"></span>
+					<img
+						src={doctor.src}
+						alt="Doctor video"
+						class="object-contain w-4/5 h-4/5"
+					/>
+				</div>
 			</div>
-			<div class="card callee">
-			<div class="status"></div>
-				<img src={you.src} alt="Avatar 2" />
+
+			<!-- Callee (small overlay video) -->
+			<div class="absolute bottom-4 right-4 w-1/4 h-1/4 z-10">
+				<div class="card bg-base-100 shadow-lg w-full h-full">
+					<div class="indicator w-full h-full flex items-center justify-center">
+						<span class="indicator-item badge badge-success top-4 right-4"
+						></span>
+						<img
+							src={you.src}
+							alt="Your video"
+							class="object-contain w-4/5 h-4/5"
+						/>
+					</div>
+				</div>
 			</div>
 		</div>
 
-		<div class="content">
-			<h2>Chat</h2>
-			<div class="messages">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin</p>
-				<p class="you">
-					Donec efficitur ultrices sapien, a varius est blandit non. Integer
-				</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin</p>
-				<p class="you">
-					Donec efficitur ultrices sapien, a varius est blandit non. Integer
-				</p>
+		<!-- Chat area -->
+		<div class="card bg-base-100 shadow-md w-full h-full">
+			<div class="card-body flex flex-col gap-4">
+				<h2 class="card-title justify-end">Chat</h2>
+				<div class="flex-1 overflow-y-auto space-y-3">
+					<div class="chat chat-start">
+						<div class="chat-bubble">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+						</div>
+					</div>
+					<div class="chat chat-end">
+						<div class="chat-bubble">
+							Donec efficitur ultrices sapien, a varius est blandit non. Integer
+						</div>
+					</div>
+					<div class="chat chat-start">
+						<div class="chat-bubble">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+						</div>
+					</div>
+					<div class="chat chat-end">
+						<div class="chat-bubble">
+							Donec efficitur ultrices sapien, a varius est blandit non. Integer
+						</div>
+					</div>
+				</div>
+				<div class="form-control">
+					<input
+						type="text"
+						name="message"
+						placeholder="Your message"
+						class="input input-bordered w-full"
+					/>
+				</div>
 			</div>
-			<input type="text" name="message" placeholder="Your message" />
 		</div>
 	</div>
 </Layout>
-
-<style>
-	.container {
-		display: grid;
-		grid-template-columns: 1fr;
-		gap: var(--space-md);
-		padding: var(--space-md);
-	}
-
-	.meet {
-		position: relative;
-		height: 100%;
-	}
-
-	.status {
-		border-radius: 50%;
-		background-color: red;
-		width: var(--text-lg);
-		height: var(--text-lg);
-		position: absolute;
-		top: 5%;
-		right: 5%;
-		border-style: inset;
-		border-color: var(--color-border);
-	}
-
-	.card {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		text-align: center;
-		align-items: center;
-		gap: var(--space-sm);
-		padding: var(--space-md);
-		background: var(--color-bg);
-		border-radius: var(--radius-sm);
-		box-shadow: var(--shadow-md);
-		height: 100%;
-		width: 100%;
-		img {
-			width: 80%;
-			height: 80%;
-			object-fit: contain;
-		}
-	}
-
-	.callee {
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		width: 25%;
-		height: 25%;
-		z-index: 10;
-	}
-
-	/* Text content */
-	.content {
-		background: var(--color-bg);
-		padding: var(--space-md);
-		border-radius: var(--radius-sm);
-		box-shadow: var(--shadow-md);
-		width: 100%;
-		position: relative;
-		line-height: var(--text-lg);
-		& > h2 {
-			text-align: right;
-		}
-		& > .messages {
-			overflow: scroll;
-			& > p {
-				text-align: left;
-			}
-			& > p.you {
-				text-align: right;
-			}
-		}
-	}
-
-	/* Desktop layout */
-	@media (min-width: 768px) {
-		.container {
-			grid-template-columns: 3fr 1fr;
-		}
-	}
-</style>

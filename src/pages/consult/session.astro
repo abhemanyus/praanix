@@ -5,177 +5,111 @@ import you from "@/assets/you.svg";
 ---
 
 <Layout>
-	<div class="container">
-		<div class="meet">
-			<div class="play">></div>
-			<div class="card caller">
-				<img src={doctor.src} alt="Avatar 1" />
+	<div class="grid gap-6 p-6 md:grid-cols-2 md:grid-rows-2">
+		<!-- Meet recording preview -->
+		<div class="relative w-full h-full">
+			<div
+				class="card bg-base-100 shadow-md w-full h-full flex items-center justify-center"
+			>
+				<img src={doctor.src} alt="Doctor" class="object-contain w-4/5 h-4/5" />
 			</div>
-			<div class="card callee">
-				<img src={you.src} alt="Avatar 2" />
+			<div class="absolute bottom-4 right-4 w-1/4 h-1/4 z-10">
+				<div
+					class="card bg-base-100 shadow-lg w-full h-full flex items-center justify-center"
+				>
+					<img src={you.src} alt="You" class="object-contain w-4/5 h-4/5" />
+				</div>
+			</div>
+			<button
+				class="btn btn-circle btn-primary absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl z-20"
+			>
+				▶
+			</button>
+		</div>
+
+		<!-- Chat archive -->
+		<div class="card bg-base-100 shadow-md w-full h-full">
+			<div class="card-body flex flex-col gap-4">
+				<h2 class="card-title justify-end">Chat</h2>
+				<div class="flex-1 overflow-y-auto space-y-3">
+					<div class="chat chat-start">
+						<div class="chat-bubble">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+						</div>
+					</div>
+					<div class="chat chat-end">
+						<div class="chat-bubble">
+							Donec efficitur ultrices sapien, a varius est blandit non. Integer
+						</div>
+					</div>
+					<div class="chat chat-start">
+						<div class="chat-bubble">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+						</div>
+					</div>
+					<div class="chat chat-end">
+						<div class="chat-bubble">
+							Donec efficitur ultrices sapien, a varius est blandit non. Integer
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 
-		<div class="content">
-			<h2>Chat</h2>
-			<div class="messages">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin</p>
-				<p class="you">
-					Donec efficitur ultrices sapien, a varius est blandit non. Integer
+		<!-- Summary -->
+		<div
+			class="card bg-base-100 shadow-md w-full h-full col-span-1 md:col-span-2"
+		>
+			<div class="card-body">
+				<h2 class="card-title">Summary</h2>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure
+					incidunt nesciunt ut vitae, doloribus quaerat nemo, culpa vel sapiente
+					earum laborum. Cum, deserunt? Quidem saepe voluptatem vero error,
+					ullam explicabo?
 				</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin</p>
-				<p class="you">
-					Donec efficitur ultrices sapien, a varius est blandit non. Integer
-				</p>
 			</div>
 		</div>
-		<div class="summary">
-			<h2>Summary</h2>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure incidunt
-				nesciunt ut vitae, doloribus quaerat nemo, culpa vel sapiente earum
-				laborum. Cum, deserunt? Quidem saepe voluptatem vero error, ullam
-				explicabo?
-			</p>
+
+		<!-- Rating -->
+		<div
+			class="card bg-base-100 shadow-md w-full h-full col-span-1 md:col-span-2"
+		>
+			<div class="card-body">
+				<h2 class="card-title">Rate This Session</h2>
+				<div class="rating rating-lg rating-half">
+					<input type="radio" name="rating-10" class="rating-hidden" />
+					<input
+						type="radio"
+						name="rating-10"
+						class="mask mask-star-2 bg-yellow-400"
+					/>
+					<input
+						type="radio"
+						name="rating-10"
+						class="mask mask-star-2 bg-yellow-400"
+						checked
+					/>
+					<input
+						type="radio"
+						name="rating-10"
+						class="mask mask-star-2 bg-yellow-400"
+					/>
+					<input
+						type="radio"
+						name="rating-10"
+						class="mask mask-star-2 bg-yellow-400"
+					/>
+					<input
+						type="radio"
+						name="rating-10"
+						class="mask mask-star-2 bg-yellow-400"
+					/>
+				</div>
+				<textarea
+					class="textarea textarea-bordered mt-4"
+					placeholder="Write your review here..."></textarea>
+			</div>
 		</div>
-		<form class="star-rating">
-			<input type="radio" id="star5" name="rating" value="5" />
-			<label for="star5" title="5 stars">&#9733;</label>
-
-			<input type="radio" id="star4" name="rating" value="4" />
-			<label for="star4" title="4 stars">&#9733;</label>
-
-			<input type="radio" id="star3" name="rating" value="3" />
-			<label for="star3" title="3 stars">&#9733;</label>
-
-			<input type="radio" id="star2" name="rating" value="2" />
-			<label for="star2" title="2 stars">&#9733;</label>
-
-			<input type="radio" id="star1" name="rating" value="1" />
-			<label for="star1" title="1 star">&#9733;</label>
-
-			<label>Review</label>
-		</form>
 	</div>
 </Layout>
-
-<style>
-	.star-rating {
-		direction: rtl;
-		font-size: 2rem;
-		unicode-bidi: bidi-override;
-		display: inline-flex;
-	}
-	.star-rating input {
-		display: none;
-	}
-	.star-rating label {
-		color: #ccc;
-		cursor: pointer;
-		padding: 0 0.1em;
-		transition: color 0.2s;
-	}
-	.star-rating label:hover,
-	.star-rating label:hover ~ label,
-	.star-rating input:checked ~ label {
-		color: gold;
-	}
-	.container {
-		display: grid;
-		gap: var(--space-md);
-		padding: var(--space-md);
-	}
-
-	.meet {
-		position: relative;
-		height: 100%;
-	}
-
-	.play {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		border-radius: 50%;
-		background-color: hwb(from var(--color-shadow) h w b / 0.5);
-		width: calc(var(--text-lg) * 3);
-		height: calc(var(--text-lg) * 3);
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		text-align: center;
-		z-index: 10;
-		font-size: calc(var(--text-lg) * 2);
-		color: var(--color-bg);
-		font-weight: bold;
-	}
-
-	.card {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		text-align: center;
-		align-items: center;
-		gap: var(--space-sm);
-		padding: var(--space-md);
-		background: var(--color-bg);
-		border-radius: var(--radius-sm);
-		box-shadow: var(--shadow-md);
-		height: 100%;
-		width: 100%;
-		img {
-			width: 80%;
-			height: 80%;
-			object-fit: contain;
-		}
-	}
-
-	.callee {
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		width: 25%;
-		height: 25%;
-		z-index: 10;
-	}
-
-	/* Text content */
-	.content {
-		background: var(--color-bg);
-		padding: var(--space-md);
-		border-radius: var(--radius-sm);
-		box-shadow: var(--shadow-md);
-		width: 100%;
-		position: relative;
-		line-height: var(--text-lg);
-		& > h2 {
-			text-align: right;
-		}
-		& > .messages {
-			overflow: scroll;
-			& > p {
-				text-align: left;
-			}
-			& > p.you {
-				text-align: right;
-			}
-		}
-	}
-
-	.summary {
-		background: var(--color-bg);
-		padding: var(--space-md);
-		border-radius: var(--radius-sm);
-		box-shadow: var(--shadow-md);
-		width: 100%;
-		line-height: var(--text-lg);
-	}
-
-	/* Desktop layout */
-	@media (min-width: 768px) {
-		.container {
-			grid-template-columns: 1fr 1fr;
-			grid-template-rows: 1fr 1fr;
-		}
-	}
-</style>

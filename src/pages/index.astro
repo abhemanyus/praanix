@@ -9,101 +9,79 @@ import you from "@/assets/you.svg";
 ---
 
 <Layout>
-	<div class="container">
-		<div class="cards">
-			<a class="card" href="/consult/">
-				<img src={doctor.src} alt="Avatar 1" />
-				<span>Consult</span>
-			</a>
-			<a class="card" href="/prescription/">
-				<img src={prescription.src} alt="Avatar 2" />
-				<span>Prescriptions</span>
-			</a>
-			<a class="card" href="/selfcheck/">
-				<img src={selfcheck.src} alt="Avatar 3" />
-				<span>Self-Check</span>
-			</a>
-			<a class="card" href="/pharmacy/">
-				<img src={pharmacy.src} alt="Avatar 4" />
-				<span>Pharmacy</span>
-			</a>
-			<a class="card" href="/docfinder/">
-				<img src={docfinder.src} alt="Avatar 4" />
-				<span>Doc-Finder</span>
-			</a>
-			<a class="card" href="/you/">
-				<img src={you.src} alt="Avatar 4" />
-				<span>You</span>
-			</a>
-		</div>
+  <div class="flex p-4 w-full h-full flex-col md:flex-row gap-6">
+    <!-- Left: Main Menu -->
+    <div class="grid md:grid-cols-3 md:grid-rows-2 gap-4 w-full">
+      <a href="/consult/" class="card bg-base-100 shadow-md card-bordered">
+        <div class="card-body items-center text-center">
+          <h2 class="card-title">Consult</h2>
+          <img src={doctor.src} alt="Consult doctor" class="w-20 h-20 object-contain" />
+        </div>
+      </a>
 
-		<div class="content">
-			<h2>Notifications</h2>
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-				scelerisque nulla non ligula cursus, at tincidunt turpis tempus.
-				Maecenas tincidunt, nibh nec pretium fermentum, nibh lacus euismod nunc,
-				eget imperdiet lectus magna vel orci. Suspendisse at quam ac nunc
-				vestibulum sodales non in eros. In vitae ligula eget arcu malesuada
-				condimentum.
-			</p>
-			<p>
-				Donec efficitur ultrices sapien, a varius est blandit non. Integer
-				sodales risus sed ligula tristique, sit amet facilisis lorem bibendum.
-				Sed lacinia lectus nec neque interdum pretium.
-			</p>
-		</div>
-	</div>
+      <a href="/prescription/" class="card bg-base-100 shadow-md card-bordered">
+        <div class="card-body items-center text-center">
+          <h2 class="card-title">Prescriptions</h2>
+          <img src={prescription.src} alt="Prescriptions" class="w-20 h-20 object-contain" />
+        </div>
+      </a>
+
+      <a href="/selfcheck/" class="card bg-base-100 shadow-md card-bordered">
+        <div class="card-body items-center text-center">
+          <h2 class="card-title">Self-Check</h2>
+          <img src={selfcheck.src} alt="Self check" class="w-20 h-20 object-contain" />
+        </div>
+      </a>
+
+      <a href="/pharmacy/" class="card bg-base-100 shadow-md card-bordered">
+        <div class="card-body items-center text-center">
+          <h2 class="card-title">Pharmacy</h2>
+          <img src={pharmacy.src} alt="Pharmacy" class="w-20 h-20 object-contain" />
+        </div>
+      </a>
+
+      <a href="/docfinder/" class="card bg-base-100 shadow-md card-bordered">
+        <div class="card-body items-center text-center">
+          <h2 class="card-title">Doc-Finder</h2>
+          <img src={docfinder.src} alt="Find doctors" class="w-20 h-20 object-contain" />
+        </div>
+      </a>
+
+      <a href="/you/" class="card bg-base-100 shadow-md card-bordered">
+        <div class="card-body items-center text-center">
+          <h2 class="card-title">You</h2>
+          <img src={you.src} alt="User profile" class="w-20 h-20 object-contain" />
+        </div>
+      </a>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider md:divider-horizontal"></div>
+
+    <!-- Right: Notifications -->
+    <div class="card bg-base-100 shadow-lg w-full md:w-1/3 card-bordered">
+      <div class="card-body">
+        <h2 class="card-title">Notifications</h2>
+        <div class="flex flex-col gap-4">
+          <div class="card bg-base-200 card-sm card-bordered">
+            <div class="card-body p-4">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                scelerisque nulla non ligula cursus.
+              </p>
+            </div>
+          </div>
+
+          <div class="card bg-base-200 card-sm card-bordered">
+            <div class="card-body p-4">
+              <p>
+                Donec efficitur ultrices sapien, a varius est blandit non. Integer
+                sodales risus sed ligula tristique.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </Layout>
-
-<style>
-	.container {
-		display: grid;
-		grid-template-columns: 1fr;
-		gap: var(--space-md);
-		padding: var(--space-md);
-	}
-
-	/* Cards */
-	.cards {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-		gap: var(--space-md);
-	}
-
-	.card {
-		aspect-ratio: 1 / 1;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		text-align: center;
-		align-items: center;
-		gap: var(--space-sm);
-		padding: var(--space-md);
-		background: var(--color-bg);
-		border-radius: var(--radius-sm);
-		box-shadow: var(--shadow-md);
-		img {
-			width: 80%;
-			height: 80%;
-			object-fit: contain;
-		}
-	}
-
-	/* Text content */
-	.content {
-		background: var(--color-bg);
-		padding: var(--space-md);
-		border-radius: var(--radius-sm);
-		box-shadow: var(--shadow-md);
-		width: 100%;
-		line-height: var(--text-lg);
-	}
-
-	/* Desktop layout */
-	@media (min-width: 768px) {
-		.container {
-			grid-template-columns: 3fr 1fr;
-		}
-	}
-</style>

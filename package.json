@@ -12,7 +12,8 @@
     "@tailwindcss/vite": "^4.1.13",
     "astro": "^5.13.10",
     "daisyui": "^5.1.18",
-    "tailwindcss": "^4.1.13"
+    "tailwindcss": "^4.1.13",
+    "theme-change": "^2.5.0"
   },
   "devDependencies": {
     "prettier": "3.6.2",
