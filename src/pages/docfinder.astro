@@ -13,82 +13,94 @@ import doctor from "@/assets/doctor.svg";
 			class="h-full w-full object-cover"
 		/>
 
-		<!-- Trigger button -->
-		<div class="absolute top-4 left-4">
-			<label for="doctor-modal" class="btn btn-primary">Show Doctor</label>
-		</div>
+		<span
+			class="pool-shadow"
+			style="color: red; font-size: 100px; position: absolute; left: 60%; top: 40%;"
+			>&#x2624;</span
+		>
 
-		<!-- Modal -->
-		<input type="checkbox" id="doctor-modal" class="modal-toggle" checked/>
-		<div class="modal">
-			<div class="modal-box max-w-lg">
-				<!-- Doctor info -->
-				<div class="flex items-center gap-4">
-					<img
-						src={doctor.src}
-						alt="Doctor Avatar"
-						class="w-20 h-20 rounded-full"
-					/>
-					<div>
-						<h2 class="text-xl font-bold">Dr. Jane Doe</h2>
-						<p class="text-sm text-gray-500">123 Health St, Wellness City</p>
+		<div
+			class="md:absolute bg-white shadow-2xl rounded-t-2xl md:rounded-none md:rounded-r-2xl p-4
+             w-full md:w-96
+             bottom-0 md:top-0 md:bottom-0 md:left-0
+             md:h-full z-10"
+		>
+			<!-- Doctor info -->
+			<div class="flex items-center gap-4">
+				<img
+					src={doctor.src}
+					alt="Doctor Avatar"
+					class="w-20 h-20 rounded-full"
+				/>
+				<div>
+					<h2 class="text-xl font-bold">Dr. Jane Doe</h2>
+					<p class="text-sm text-gray-500">123 Health St, Wellness City</p>
+				</div>
+			</div>
+
+			<p class="mt-4 text-gray-700">
+				Dr. Jane Doe is a highly experienced physician specializing in family
+				medicine and preventive care.
+			</p>
+
+			<!-- Similar doctors -->
+			<h3 class="mt-6 mb-2 font-semibold">Similar Doctors</h3>
+			<div
+				class="flex md:flex-col gap-4 overflow-x-auto md:overflow-y-auto pb-2"
+			>
+				<div class="card bg-base-100 shadow-md w-40 md:w-full flex-1">
+					<figure>
+						<img src={doctor.src} alt="Doctor" class="w-40" />
+					</figure>
+					<div class="card-body p-2">
+						<h4 class="text-sm font-bold">Dr. John Smith</h4>
+						<p class="text-xs text-gray-500">Pediatrics</p>
 					</div>
 				</div>
-
-				<p class="mt-4 text-gray-700">
-					Dr. Jane Doe is a highly experienced physician specializing in family
-					medicine and preventive care.
-				</p>
-
-				<!-- Similar doctors -->
-				<h3 class="mt-6 mb-2 font-semibold">Similar Doctors</h3>
-				<div class="flex gap-4 overflow-x-auto pb-2">
-					<div class="card bg-base-100 shadow-md w-40 flex-shrink-0">
-						<figure>
-							<img
-								src={doctor.src}
-								alt="Doctor"
-								class="w-full"
-							/>
-						</figure>
-						<div class="card-body p-2">
-							<h4 class="text-sm font-bold">Dr. John Smith</h4>
-							<p class="text-xs text-gray-500">Pediatrics</p>
-						</div>
-					</div>
-					<div class="card bg-base-100 shadow-md w-40 flex-shrink-0">
-						<figure>
-							<img
-								src={doctor.src}
-								alt="Doctor"
-								class="w-full"
-							/>
-						</figure>
-						<div class="card-body p-2">
-							<h4 class="text-sm font-bold">Dr. Alice Brown</h4>
-							<p class="text-xs text-gray-500">Dermatology</p>
-						</div>
-					</div>
-					<div class="card bg-base-100 shadow-md w-40 flex-shrink-0">
-						<figure>
-							<img
-								src={doctor.src}
-								alt="Doctor"
-								class="w-full"
-							/>
-						</figure>
-						<div class="card-body p-2">
-							<h4 class="text-sm font-bold">Dr. Mark Lee</h4>
-							<p class="text-xs text-gray-500">Cardiology</p>
-						</div>
+				<div class="card bg-base-100 shadow-md w-40 md:w-full flex-1">
+					<figure>
+						<img src={doctor.src} alt="Doctor" class="w-40" />
+					</figure>
+					<div class="card-body p-2">
+						<h4 class="text-sm font-bold">Dr. Alice Brown</h4>
+						<p class="text-xs text-gray-500">Dermatology</p>
 					</div>
 				</div>
-
-				<!-- Close button -->
-				<div class="modal-action">
-					<label for="doctor-modal" class="btn">Close</label>
+				<div class="card bg-base-100 shadow-md w-40 md:w-full flex-1">
+					<figure>
+						<img src={doctor.src} alt="Doctor" class="w-40" />
+					</figure>
+					<div class="card-body p-2">
+						<h4 class="text-sm font-bold">Dr. Mark Lee</h4>
+						<p class="text-xs text-gray-500">Cardiology</p>
+					</div>
 				</div>
+			</div>
+
+			<!-- Close button -->
+			<div class="modal-action">
+				<label for="doctor-modal" class="btn">Close</label>
 			</div>
 		</div>
 	</div>
 </Layout>
+
+<style>
+	.pool-shadow {
+		user-select: none;
+		&:after {
+			content: " ";
+			position: absolute;
+			left: 50%;
+			bottom: 30px; /* just below text */
+			transform: translateX(-50%);
+			width: 80%; /* oval width */
+			height: 10px; /* oval height */
+			background: radial-gradient(
+				ellipse,
+				rgba(0, 0, 0, 0.6) 0%,
+				transparent 80%
+			);
+		}
+	}
+</style>
