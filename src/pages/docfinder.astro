@@ -1,9 +1,88 @@
 ---
-import Welcome from "@/components/Welcome.astro";
 import Layout from "@/layouts/Layout.astro";
-
+import { getAbsoluteUrl } from "@/utils/url";
 ---
 
 <Layout>
-	<Welcome />
+	<div class="h-screen w-screen relative">
+		<!-- Background map -->
+		<img
+			src={getAbsoluteUrl("/map.png")}
+			alt="Map"
+			class="h-full w-full object-cover"
+		/>
+
+		<!-- Modal Overlay -->
+		<div class="absolute inset-0 flex items-center justify-center">
+			<div class="modal-box max-w-lg bg-white shadow-xl rounded-2xl">
+				<!-- Doctor info -->
+				<div class="flex items-center gap-4">
+					<img
+						src="https://via.placeholder.com/100"
+						alt="Doctor Avatar"
+						class="w-20 h-20 rounded-full"
+					/>
+					<div>
+						<h2 class="text-xl font-bold">Dr. Jane Doe</h2>
+						<p class="text-sm text-gray-500">123 Health St, Wellness City</p>
+					</div>
+				</div>
+
+				<p class="mt-4 text-gray-700">
+					Dr. Jane Doe is a highly experienced physician specializing in family
+					medicine and preventive care.
+				</p>
+
+				<!-- Similar doctors -->
+				<h3 class="mt-6 mb-2 font-semibold">Similar Doctors</h3>
+				<div class="flex gap-4 overflow-x-auto pb-2">
+					<!-- Doctor card -->
+					<div class="card bg-base-100 shadow-md w-40 flex-shrink-0">
+						<figure>
+							<img
+								src="https://via.placeholder.com/150"
+								alt="Doctor"
+								class="w-full"
+							/>
+						</figure>
+						<div class="card-body p-2">
+							<h4 class="text-sm font-bold">Dr. John Smith</h4>
+							<p class="text-xs text-gray-500">Pediatrics</p>
+						</div>
+					</div>
+					<div class="card bg-base-100 shadow-md w-40 flex-shrink-0">
+						<figure>
+							<img
+								src="https://via.placeholder.com/150"
+								alt="Doctor"
+								class="w-full"
+							/>
+						</figure>
+						<div class="card-body p-2">
+							<h4 class="text-sm font-bold">Dr. Alice Brown</h4>
+							<p class="text-xs text-gray-500">Dermatology</p>
+						</div>
+					</div>
+					<div class="card bg-base-100 shadow-md w-40 flex-shrink-0">
+						<figure>
+							<img
+								src="https://via.placeholder.com/150"
+								alt="Doctor"
+								class="w-full"
+							/>
+						</figure>
+						<div class="card-body p-2">
+							<h4 class="text-sm font-bold">Dr. Mark Lee</h4>
+							<p class="text-xs text-gray-500">Cardiology</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Close button -->
+				<div class="modal-action">
+					<button class="btn">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </Layout>
