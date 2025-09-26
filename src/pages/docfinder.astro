@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { getAbsoluteUrl } from "@/utils/url";
+import doctor from "@/assets/doctor.svg";
 ---
 
 <Layout>
@@ -12,13 +13,19 @@ import { getAbsoluteUrl } from "@/utils/url";
 			class="h-full w-full object-cover"
 		/>
 
-		<!-- Modal Overlay -->
-		<div class="absolute inset-0 flex items-center justify-center">
-			<div class="modal-box max-w-lg bg-white shadow-xl rounded-2xl">
+		<!-- Trigger button -->
+		<div class="absolute top-4 left-4">
+			<label for="doctor-modal" class="btn btn-primary">Show Doctor</label>
+		</div>
+
+		<!-- Modal -->
+		<input type="checkbox" id="doctor-modal" class="modal-toggle" checked/>
+		<div class="modal">
+			<div class="modal-box max-w-lg">
 				<!-- Doctor info -->
 				<div class="flex items-center gap-4">
 					<img
-						src="https://via.placeholder.com/100"
+						src={doctor.src}
 						alt="Doctor Avatar"
 						class="w-20 h-20 rounded-full"
 					/>
@@ -36,11 +43,10 @@ import { getAbsoluteUrl } from "@/utils/url";
 				<!-- Similar doctors -->
 				<h3 class="mt-6 mb-2 font-semibold">Similar Doctors</h3>
 				<div class="flex gap-4 overflow-x-auto pb-2">
-					<!-- Doctor card -->
 					<div class="card bg-base-100 shadow-md w-40 flex-shrink-0">
 						<figure>
 							<img
-								src="https://via.placeholder.com/150"
+								src={doctor.src}
 								alt="Doctor"
 								class="w-full"
 							/>
@@ -53,7 +59,7 @@ import { getAbsoluteUrl } from "@/utils/url";
 					<div class="card bg-base-100 shadow-md w-40 flex-shrink-0">
 						<figure>
 							<img
-								src="https://via.placeholder.com/150"
+								src={doctor.src}
 								alt="Doctor"
 								class="w-full"
 							/>
@@ -66,7 +72,7 @@ import { getAbsoluteUrl } from "@/utils/url";
 					<div class="card bg-base-100 shadow-md w-40 flex-shrink-0">
 						<figure>
 							<img
-								src="https://via.placeholder.com/150"
+								src={doctor.src}
 								alt="Doctor"
 								class="w-full"
 							/>
@@ -80,7 +86,7 @@ import { getAbsoluteUrl } from "@/utils/url";
 
 				<!-- Close button -->
 				<div class="modal-action">
-					<button class="btn">Close</button>
+					<label for="doctor-modal" class="btn">Close</label>
 				</div>
 			</div>
 		</div>
