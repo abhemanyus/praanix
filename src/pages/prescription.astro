@@ -1,54 +1,123 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import doctor from "@/assets/doctor.svg";
 ---
 
 <Layout>
-	<div class="flex flex-col items-center p-6 w-full">
-		<div class="grid gap-6 w-full md:w-4/5">
-			<!-- Prescription Card -->
+	<div class="flex flex-col md:flex-row gap-6 p-6 w-full">
+		<!-- Tracker -->
+		<div class="grid gap-6 w-full md:w-2/5">
+			<!-- Example Medication Tracker Card -->
 			<div class="card bg-base-100 shadow-md">
-				<div class="card-body grid grid-cols-2 gap-4 text-center">
-					<h3 class="col-span-2 card-title justify-center">Prednisone</h3>
-					<p class="badge badge-outline">Two 20mg tablets</p>
-					<p class="badge badge-secondary">Before meal</p>
-					<label
-						class="form-control col-span-2 flex items-center justify-center gap-2"
-					>
-						<span>Taken?</span>
-						<input type="checkbox" class="checkbox checkbox-primary" />
-					</label>
-					<span class="col-span-2 badge badge-accent">6AM → 7AM</span>
+				<div class="card-body flex flex-col items-center gap-3 text-center">
+					<h3 class="card-title text-lg">Metformin 500mg</h3>
+					<div class="flex flex-wrap justify-center gap-2">
+						<p class="badge badge-outline">One tablet</p>
+						<p class="badge badge-secondary">After dinner</p>
+					</div>
+					<button class="btn btn-success btn-lg w-full max-w-xs" disabled>
+						Taken
+					</button>
+					<span class="badge badge-accent mt-2">8PM → 9PM</span>
 				</div>
 			</div>
 
-			<!-- Duplicate for example -->
+			<!-- Duplicate for demo -->
 			<div class="card bg-base-100 shadow-md">
-				<div class="card-body grid grid-cols-2 gap-4 text-center">
-					<h3 class="col-span-2 card-title justify-center">Prednisone</h3>
-					<p class="badge badge-outline">Two 20mg tablets</p>
-					<p class="badge badge-secondary">Before meal</p>
-					<label
-						class="form-control col-span-2 flex items-center justify-center gap-2"
-					>
-						<span>Taken?</span>
-						<input type="checkbox" class="checkbox checkbox-primary" />
-					</label>
-					<span class="col-span-2 badge badge-accent">6AM → 7AM</span>
+				<div class="card-body flex flex-col items-center gap-3 text-center">
+					<h3 class="card-title text-lg">Amlodipine 5mg</h3>
+					<div class="flex flex-wrap justify-center gap-2">
+						<p class="badge badge-outline">One tablet</p>
+						<p class="badge badge-secondary">In morning</p>
+					</div>
+					<button class="btn btn-primary btn-lg w-full max-w-xs">
+						Mark as Taken
+					</button>
+					<span class="badge badge-accent mt-2">6AM → 7AM</span>
 				</div>
 			</div>
+		</div>
 
-			<div class="card bg-base-100 shadow-md">
-				<div class="card-body grid grid-cols-2 gap-4 text-center">
-					<h3 class="col-span-2 card-title justify-center">Prednisone</h3>
-					<p class="badge badge-outline">Two 20mg tablets</p>
-					<p class="badge badge-secondary">Before meal</p>
-					<label
-						class="form-control col-span-2 flex items-center justify-center gap-2"
-					>
-						<span>Taken?</span>
-						<input type="checkbox" class="checkbox checkbox-primary" />
-					</label>
-					<span class="col-span-2 badge badge-accent">6AM → 7AM</span>
+		<!-- Prescriptions -->
+		<div class="w-full md:w-3/5">
+			<h2 class="text-xl font-bold mb-4">Prescriptions</h2>
+			<div
+				class="flex md:flex-col gap-4 overflow-x-auto md:overflow-y-auto pb-2"
+			>
+				<!-- Prescription Card -->
+				<div class="card bg-base-100 shadow-md w-64 md:w-full flex-shrink-0">
+					<div class="card-body p-4 flex flex-col gap-3">
+						<div class="flex items-center gap-3">
+							<img
+								src={doctor.src}
+								alt="Doctor"
+								class="w-10 h-10 rounded-full"
+							/>
+							<h4 class="text-sm font-bold">Pre-diabetes Management</h4>
+						</div>
+						<p class="text-xs text-gray-500">
+							Take regularly, do not miss a single dose. If symptoms still
+							persist, contact me immediately.
+						</p>
+						<table class="table table-zebra text-xs">
+							<thead>
+								<tr>
+									<th>Medication</th>
+									<th>Dosage</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Metformin 500mg</td>
+									<td>Once, after dinner</td>
+								</tr>
+								<tr>
+									<td>Bitter Gourd Juice 500ml</td>
+									<td>Once, before breakfast</td>
+								</tr>
+							</tbody>
+						</table>
+						<button class="btn btn-primary w-full">Buy Medication</button>
+					</div>
+				</div>
+
+				<!-- Disabled Example -->
+				<div class="card bg-base-100 shadow-md w-64 md:w-full flex-shrink-0">
+					<div class="card-body p-4 flex flex-col gap-3">
+						<div class="flex items-center gap-3">
+							<img
+								src={doctor.src}
+								alt="Doctor"
+								class="w-10 h-10 rounded-full"
+							/>
+							<h4 class="text-sm font-bold">Hypertension Control</h4>
+						</div>
+						<p class="text-xs text-gray-500">
+							Maintain regular dosage, avoid skipping. Contact me if side
+							effects occur.
+						</p>
+						<table class="table table-zebra text-xs">
+							<thead>
+								<tr>
+									<th>Medication</th>
+									<th>Dosage</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Amlodipine 5mg</td>
+									<td>Once, in morning</td>
+								</tr>
+								<tr>
+									<td>Atenolol 50mg</td>
+									<td>Once, at night</td>
+								</tr>
+							</tbody>
+						</table>
+						<button class="btn btn-primary w-full" disabled
+							>Already Bought</button
+						>
+					</div>
 				</div>
 			</div>
 		</div>
