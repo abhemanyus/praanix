@@ -4,10 +4,12 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://abhemanyus.github.io",
   prefetch: {
     prefetchAll: true,
     defaultStrategy: "load",
   },
+  trailingSlash: "always",
   vite: {
     plugins: [tailwindcss()],
   },
